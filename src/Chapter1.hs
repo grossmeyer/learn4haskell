@@ -480,7 +480,7 @@ Implement a function that returns the last digit of a given number.
 -- DON'T FORGET TO SPECIFY THE TYPE IN HERE
 
 lastDigit :: Integral a => a -> a
-lastDigit n = mod n 10
+lastDigit n = mod (abs n) 10
 
 
 {- |
@@ -649,9 +649,9 @@ sumLast2 :: Integral a => a -> a
 sumLast2 n = tens n + ones n
     where
       tens :: Integral a => a -> a
-      tens t = div (mod t 100) 10
+      tens t = div (mod (abs t) 100) 10
       ones :: Integral a => a -> a
-      ones o = mod o 10
+      ones o = mod (abs o) 10
 
 {- |
 =💣= Task 10*
@@ -676,6 +676,7 @@ firstDigit :: Integral a => a -> a
 firstDigit n
     | (abs n) < 10 = (abs n)
     | (abs n) >= 10 = firstDigit (div (abs n) 10)
+    | otherwise = 0
 
 
 {-
