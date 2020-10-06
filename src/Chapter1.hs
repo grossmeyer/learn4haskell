@@ -544,15 +544,6 @@ value after "=" where the condition is true.
 Casual reminder about adding top-level type signatures for all functions :)
 -}
 
-{-
-1 2 3
-1 3 2
-2 1 3
-2 3 1
-3 1 2
-3 2 1
--}
-
 mid :: Ord a => a -> a -> a -> a
 mid x y z
     | x < y && y < z = y
