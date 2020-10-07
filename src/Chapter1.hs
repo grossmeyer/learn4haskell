@@ -416,7 +416,7 @@ task is to specify the type of this function.
 >>> squareSum 3 4
 49
 -}
-squareSum :: Num a => a -> a -> a
+squareSum :: Int -> Int -> Int
 squareSum x y = (x + y) * (x + y)
 
 
@@ -546,7 +546,6 @@ Casual reminder about adding top-level type signatures for all functions :)
 
 mid :: Ord a => a -> a -> a -> a
 mid x y z
-    | x < y && y < z = y
     | x < z && z < y = z
     | y < x && x < z = x
     | y < z && z < x = z
@@ -665,9 +664,8 @@ aren't ready for this boss yet!
 
 firstDigit :: Integral a => a -> a
 firstDigit n
-    | (abs n) < 10 = (abs n)
-    | (abs n) >= 10 = firstDigit (div (abs n) 10)
-    | otherwise = 0
+    | abs n < 10 = abs n
+    | otherwise = firstDigit (div (abs n) 10)
 
 
 {-
